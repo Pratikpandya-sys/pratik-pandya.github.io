@@ -16,9 +16,9 @@
     --panel-alt:#1F252D;
     --border:#2B323B;
     --border-light:#3B4551;
-    --text:#E9ECEF;
-    --text-dim:#8D96A2;
-    --text-faint:#5C6570;
+    --text:#EEF1F4;
+    --text-dim:#AAB2BC;
+    --text-faint:#838B94;
     --amber:#F0A93B;
     --amber-dim:#8A672B;
     --cyan:#5FC9E8;
@@ -37,6 +37,7 @@
     margin:0;
     overflow-x:hidden;
     background:
+      radial-gradient(circle at 3px 3px, rgba(255,255,255,0.035) 1px, transparent 0) 0 0/26px 26px,
       radial-gradient(ellipse at top, #171B21 0%, var(--bg-deep) 70%);
     color:var(--text);
     font-family:'IBM Plex Sans', sans-serif;
@@ -115,10 +116,14 @@
   }
   .chapter .num{color:var(--text-faint); margin-right:2px;}
 
-  section{margin-top:38px;}
+  section{margin-top:38px; scroll-margin-top:68px;}
   section:first-of-type{margin-top:44px;}
 
-  h2{font-size:1.5rem; color:var(--text); margin-bottom:20px; letter-spacing:0.01em;}
+  h2{
+    font-size:1.5rem; color:var(--text); margin-bottom:20px; letter-spacing:0.01em;
+    padding-left:14px;
+    border-left:3px solid var(--amber);
+  }
 
   /* ---------- Hero ---------- */
   #hero{
@@ -159,13 +164,20 @@
     text-align:center;
     margin-top:8px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:9.5px;
+    font-size:10.5px;
     letter-spacing:0.08em;
     color:var(--text-faint);
   }
 
   #hero .headline{flex:1; min-width:240px;}
-  #hero h1{font-size:clamp(1.6rem, 5.5vw, 2.15rem); color:var(--text); line-height:1.1;}
+  #hero h1{
+    font-size:clamp(1.6rem, 5.5vw, 2.15rem);
+    line-height:1.1;
+    background:linear-gradient(100deg, var(--text) 55%, var(--cyan) 130%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
   #hero .role-row{
     display:flex;
     align-items:center;
@@ -182,6 +194,12 @@
     border:1px solid var(--border-light);
     border-radius:2px;
     color:var(--text-dim);
+  }
+  .badge-highlight{
+    color:var(--bg-deep);
+    background:var(--amber);
+    border-color:var(--amber);
+    font-weight:600;
   }
   .status-dot{
     display:inline-block;
@@ -206,13 +224,22 @@
     border-top:1px solid var(--border);
     display:flex;
     flex-wrap:wrap;
-    gap:8px 22px;
+    gap:10px 24px;
     font-family:'IBM Plex Mono', monospace;
     font-size:12.5px;
     color:var(--text-dim);
   }
+  #hero .contact-strip span, #hero .contact-strip a{
+    display:inline-flex; align-items:center; gap:7px;
+  }
+  #hero .contact-strip svg, footer .contacts svg{
+    width:13px; height:13px; flex-shrink:0;
+    stroke:var(--amber); fill:none; stroke-width:1.8;
+    opacity:0.85;
+  }
   #hero .contact-strip a{color:var(--text-dim);}
   #hero .contact-strip a:hover{color:var(--cyan);}
+  #hero .contact-strip a:hover svg{stroke:var(--cyan);}
 
   #hero .lede{margin-top:16px; color:var(--text-dim); max-width:60ch; font-size:0.98rem;}
 
@@ -249,8 +276,8 @@
     display:block;
     margin-top:5px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    color:var(--text-faint);
+    font-size:11.5px;
+    color:var(--text-dim);
     line-height:1.5;
   }
   .tag-status{
@@ -259,7 +286,7 @@
     gap:5px;
     margin-top:8px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:9.5px;
+    font-size:10.5px;
     letter-spacing:0.06em;
   }
   .tag-status .dot{width:5px; height:5px; border-radius:50%;}
@@ -348,8 +375,8 @@
   .signal-bars span.on{background:var(--cyan); box-shadow:0 0 5px rgba(95,201,232,0.5);}
   .signal-level{
     font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    color:var(--text-faint);
+    font-size:11px;
+    color:var(--text-dim);
     width:110px;
     text-align:right;
     flex-shrink:0;
@@ -358,6 +385,7 @@
   /* ---------- Footer ---------- */
   footer{
     margin-top:44px;
+    scroll-margin-top:68px;
     padding:clamp(18px, 4vw, 24px) clamp(16px, 4vw, 30px);
     display:flex;
     justify-content:space-between;
@@ -375,9 +403,10 @@
     font-family:'IBM Plex Mono', monospace;
     font-size:12px;
     display:flex;
-    gap:16px;
+    gap:18px;
     flex-wrap:wrap;
   }
+  footer .contacts a{display:inline-flex; align-items:center; gap:7px;}
 
   @media print{
     body{background:#fff; color:#000;}
@@ -402,15 +431,15 @@
     .rec-date{order:-1; color:var(--amber); opacity:0.85;}
     footer{flex-direction:column; align-items:flex-start;}
     .signal-name{width:72px; font-size:0.86rem;}
-    .signal-level{width:auto; font-size:9px;}
+    .signal-level{width:auto; font-size:10px;}
   }
 
   @media (max-width:420px){
     main{padding-left:16px; padding-right:16px;}
     #hero h1{font-size:1.5rem;}
-    .badge{font-size:10px; padding:2px 6px;}
-    .status{font-size:10px;}
-    .hud-tag{font-size:8.5px;}
+    .badge{font-size:10.5px; padding:2px 6px;}
+    .status{font-size:10.5px;}
+    .hud-tag{font-size:9.5px;}
     .breaker{font-size:11px; padding:5px 9px;}
     .tag-role{font-size:0.98rem;}
   }
@@ -420,11 +449,106 @@
     #hero .headline{min-width:0;}
     .signal-bars span{height:11px;}
   }
+  /* ---------- Sticky nav (softkey bar) ---------- */
+  #navbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(13,16,19,0.92);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  #navbar .inner{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    height:52px;
+  }
+  #navbar .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:var(--text);
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  #navbar .brand strong{color:var(--amber); font-weight:600;}
+  #navbar .menu{
+    display:flex;
+    gap:4px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  #navbar .menu::-webkit-scrollbar{display:none;}
+  #navbar .menu a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--text-dim);
+    text-decoration:none;
+    white-space:nowrap;
+    padding:8px 12px;
+    border-radius:2px;
+    border:1px solid transparent;
+    transition:color 0.15s ease, border-color 0.15s ease;
+  }
+  #navbar .menu a:hover{color:var(--text);}
+  #navbar .menu a.active{
+    color:var(--amber);
+    border-color:var(--amber-dim);
+    background:rgba(240,169,59,0.08);
+  }
+  #navbar .print-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    color:var(--bg-deep);
+    background:var(--amber);
+    border:none;
+    border-radius:2px;
+    padding:8px 12px;
+    cursor:pointer;
+    white-space:nowrap;
+    flex-shrink:0;
+    font-weight:600;
+  }
+  #navbar .print-btn:hover{background:#F7BB5C;}
+
+  @media (max-width:680px){
+    #navbar .inner{padding:0 16px; gap:12px;}
+    #navbar .brand{font-size:11px;}
+    #navbar .print-btn{padding:7px 10px;}
+  }
+  @media (max-width:420px){
+    #navbar .brand{display:none;}
+  }
+
 </style>
 </head>
 <body>
 
 <div class="hazard" aria-hidden="true"></div>
+
+<nav id="navbar">
+  <div class="inner">
+    <span class="brand">PP&nbsp;<strong>/</strong>&nbsp;QUALITY&nbsp;LOG</span>
+    <div class="menu">
+      <a href="#profile" data-nav>Profile</a>
+      <a href="#experience" data-nav>Experience</a>
+      <a href="#capabilities" data-nav>Skills</a>
+      <a href="#education" data-nav>Education</a>
+      <a href="#languages" data-nav>Languages</a>
+      <a href="#contact" data-nav>Contact</a>
+    </div>
+    <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</nav>
 
 <main>
 
@@ -449,9 +573,9 @@
         <span class="badge">OPEN TO RELOCATE</span>
       </div>
       <div class="contact-strip">
-        <span>Whitby, ON, Canada</span>
-        <a href="tel:4163193567">416&nbsp;319&nbsp;3567</a>
-        <a href="mailto:pratikpandyaame@gmail.com">pratikpandyaame@gmail.com</a>
+        <span><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>Whitby, ON, Canada</span>
+        <a href="tel:4163193567"><svg viewBox="0 0 24 24"><path d="M4 5c0-.6.4-1 1-1h3.2c.5 0 .9.3 1 .8l1 4a1 1 0 0 1-.3 1L7.6 11.2a13 13 0 0 0 5.2 5.2l1.4-1.3a1 1 0 0 1 1-.3l4 1c.5.1.8.5.8 1V20c0 .6-.4 1-1 1h-2C9.4 21 3 14.6 3 7V5z"/></svg>416&nbsp;319&nbsp;3567</a>
+        <a href="mailto:pratikpandyaame@gmail.com"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>pratikpandyaame@gmail.com</a>
       </div>
       <p class="lede">Eighteen years across airframe and engine maintenance, receiving inspection, and aerospace supplier quality — currently leading industrial validation at Safran Landing Systems. AS9100-trained, ASQ-CQE certified, and equally comfortable with a torque wrench or a QMS audit checklist.</p>
     </div>
@@ -738,18 +862,41 @@
     </div>
   </section>
 
-  <footer class="panel">
+  <footer id="contact" class="panel">
     <span class="rivet tl"></span><span class="rivet tr"></span>
     <span class="rivet bl"></span><span class="rivet br"></span>
     <div class="avail"><strong>Open to opportunities</strong> — supplier quality, industrialization &amp; validation roles, open to relocation</div>
     <div class="contacts">
-      <a href="mailto:pratikpandyaame@gmail.com">pratikpandyaame@gmail.com</a>
-      <a href="tel:4163193567">416 319 3567</a>
-      <span style="color:var(--text-faint)">Whitby, ON</span>
+      <a href="mailto:pratikpandyaame@gmail.com"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>pratikpandyaame@gmail.com</a>
+      <a href="tel:4163193567"><svg viewBox="0 0 24 24"><path d="M4 5c0-.6.4-1 1-1h3.2c.5 0 .9.3 1 .8l1 4a1 1 0 0 1-.3 1L7.6 11.2a13 13 0 0 0 5.2 5.2l1.4-1.3a1 1 0 0 1 1-.3l4 1c.5.1.8.5.8 1V20c0 .6-.4 1-1 1h-2C9.4 21 3 14.6 3 7V5z"/></svg>416 319 3567</a>
+      <span style="color:var(--text-dim); display:inline-flex; align-items:center; gap:7px;"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>Whitby, ON</span>
     </div>
   </footer>
 
 </main>
+
+<script>
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('#navbar [data-nav]'));
+    var targets = links.map(function(l){ return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
+
+    if(!('IntersectionObserver' in window) || !targets.length) return;
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var id = '#' + entry.target.id;
+        var link = links.find(function(l){ return l.getAttribute('href') === id; });
+        if(!link) return;
+        if(entry.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+    targets.forEach(function(t){ observer.observe(t); });
+  })();
+</script>
 
 </body>
 </html>
