@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratik Pandya — Senior Supplier Quality Engineer</title>
+<meta name="description" content="Pratik Pandya — Senior Supplier Quality Engineer. Aircraft maintenance and aerospace supplier quality background: AS9100, supplier audits, FAI, and industrial validation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12151A;
+    --bg-deep:#0D1013;
+    --panel:#1B2027;
+    --panel-alt:#1F252D;
+    --border:#2B323B;
+    --border-light:#3B4551;
+    --text:#E9ECEF;
+    --text-dim:#8D96A2;
+    --text-faint:#5C6570;
+    --amber:#F0A93B;
+    --amber-dim:#8A672B;
+    --cyan:#5FC9E8;
+    --green:#5FBF7A;
+    --max:820px;
+  }
+
+  *{box-sizing:border-box; min-width:0;}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+
+  body{
+    margin:0;
+    overflow-x:hidden;
+    background:
+      radial-gradient(ellipse at top, #171B21 0%, var(--bg-deep) 70%);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%; display:block;}
+  a, .rec-main, .tag-org, p{overflow-wrap:anywhere; word-break:break-word;}
+
+  ::selection{background:var(--amber); color:#1A1300;}
+  a{color:var(--cyan); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
+
+  h1,h2,h3{margin:0; font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:0.005em;}
+  p{margin:0 0 14px 0; max-width:66ch; color:var(--text-dim);}
+  p:last-child{margin-bottom:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- top hazard strip ---------- */
+  .hazard{
+    height:7px;
+    width:100%;
+    background:repeating-linear-gradient(135deg, var(--amber) 0 14px, #14161A 14px 28px);
+    background-size: 40px 40px;
+  }
+  @media (max-width:480px){
+    .hazard{height:5px; background-size:26px 26px;}
+  }
+
+  main{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px 90px 28px;
+    width:100%;
+  }
+
+  /* ---------- shared panel module ---------- */
+  .panel{
+    position:relative;
+    background:linear-gradient(180deg, var(--panel) 0%, var(--panel-alt) 100%);
+    border:1px solid var(--border);
+    border-radius:3px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.03),
+      0 10px 24px -14px rgba(0,0,0,0.6);
+  }
+  .rivet{
+    position:absolute;
+    width:6px; height:6px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #565f6a, #22262c 70%);
+    box-shadow:0 0 0 1px rgba(0,0,0,0.4);
+  }
+  .rivet.tl{top:9px; left:9px;}
+  .rivet.tr{top:9px; right:9px;}
+  .rivet.bl{bottom:9px; left:9px;}
+  .rivet.br{bottom:9px; right:9px;}
+
+  .chapter{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    color:var(--amber);
+  }
+  .chapter::before{
+    content:"";
+    width:18px; height:1px;
+    background:var(--amber-dim);
+  }
+  .chapter .num{color:var(--text-faint); margin-right:2px;}
+
+  section{margin-top:38px;}
+  section:first-of-type{margin-top:44px;}
+
+  h2{font-size:1.5rem; color:var(--text); margin-bottom:20px; letter-spacing:0.01em;}
+
+  /* ---------- Hero ---------- */
+  #hero{
+    margin-top:36px;
+    padding:clamp(22px, 5vw, 34px) clamp(18px, 4vw, 30px);
+    display:flex;
+    gap:clamp(20px, 4vw, 32px);
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .hud-frame{
+    position:relative;
+    width:132px; height:132px;
+    flex-shrink:0;
+    padding:9px;
+  }
+  .hud-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    filter:saturate(0.96) contrast(1.03);
+  }
+  .hud-frame::before,
+  .hud-frame::after,
+  .hud-frame .c2,
+  .hud-frame .c3{
+    content:"";
+    position:absolute;
+    width:20px; height:20px;
+    border:2px solid var(--cyan);
+    opacity:0.85;
+  }
+  .hud-frame::before{ top:0; left:0; border-right:none; border-bottom:none; }
+  .hud-frame::after{ top:0; right:0; border-left:none; border-bottom:none; }
+  .hud-frame .c2{ bottom:0; left:0; border-right:none; border-top:none; }
+  .hud-frame .c3{ bottom:0; right:0; border-left:none; border-top:none; }
+  .hud-tag{
+    text-align:center;
+    margin-top:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    color:var(--text-faint);
+  }
+
+  #hero .headline{flex:1; min-width:240px;}
+  #hero h1{font-size:clamp(1.6rem, 5.5vw, 2.15rem); color:var(--text); line-height:1.1;}
+  #hero .role-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:8px;
+  }
+  #hero .role{font-size:clamp(0.9rem, 2.6vw, 1rem); color:var(--cyan); font-weight:500;}
+  .badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:3px 8px;
+    border:1px solid var(--border-light);
+    border-radius:2px;
+    color:var(--text-dim);
+  }
+  .status-dot{
+    display:inline-block;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 6px 1px rgba(95,191,122,0.7);
+    margin-right:6px;
+  }
+  .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--green);
+    display:inline-flex;
+    align-items:center;
+  }
+
+  #hero .contact-strip{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid var(--border);
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--text-dim);
+  }
+  #hero .contact-strip a{color:var(--text-dim);}
+  #hero .contact-strip a:hover{color:var(--cyan);}
+
+  #hero .lede{margin-top:16px; color:var(--text-dim); max-width:60ch; font-size:0.98rem;}
+
+  /* ---------- Profile ---------- */
+  .panel-pad{padding:clamp(20px, 4.5vw, 28px) clamp(16px, 4vw, 30px);}
+
+  /* ---------- Experience: inspection tags ---------- */
+  .log-list{display:flex; flex-direction:column; gap:14px;}
+  .tag{
+    position:relative;
+    padding:18px clamp(16px, 4vw, 22px) 18px 26px;
+    display:grid;
+    grid-template-columns:92px 1fr;
+    gap:20px;
+  }
+  .tag::before{
+    /* grommet hole */
+    content:"";
+    position:absolute;
+    top:18px; left:9px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--bg-deep);
+    box-shadow:inset 0 0 0 1px var(--border-light);
+  }
+  .tag-meta{padding-top:2px;}
+  .tag-ref{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--amber);
+    letter-spacing:0.03em;
+  }
+  .tag-dates{
+    display:block;
+    margin-top:5px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--text-faint);
+    line-height:1.5;
+  }
+  .tag-status{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    margin-top:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+  }
+  .tag-status .dot{width:5px; height:5px; border-radius:50%;}
+  .tag-status.active .dot{background:var(--green); box-shadow:0 0 5px 1px rgba(95,191,122,0.65);}
+  .tag-status.active{color:var(--green);}
+  .tag-status.done .dot{background:var(--text-faint);}
+  .tag-status.done{color:var(--text-faint);}
+
+  .tag-role{font-size:1.05rem; font-weight:600; color:var(--text); font-family:'IBM Plex Sans',sans-serif;}
+  .tag-org{font-size:0.9rem; color:var(--cyan); margin-top:2px; margin-bottom:12px;}
+  .tag ul{margin:0; padding-left:18px; color:var(--text-dim);}
+  .tag li{margin-bottom:6px; font-size:0.94rem;}
+  .tag li::marker{color:var(--border-light);}
+
+  @media (max-width:640px){
+    .tag{grid-template-columns:1fr; padding-left:24px; gap:10px;}
+    .tag-meta{display:flex; align-items:center; flex-wrap:wrap; gap:10px 14px;}
+    .tag-dates{margin-top:0;}
+    .tag-status{margin-top:0;}
+  }
+
+  /* ---------- Systems check (skills) ---------- */
+  .breaker-group{margin-bottom:24px;}
+  .breaker-group:last-child{margin-bottom:0;}
+  .breaker-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.07em;
+    color:var(--text-faint);
+    display:block;
+    margin-bottom:10px;
+  }
+  .breakers{display:flex; flex-wrap:wrap; gap:8px;}
+  .breaker{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:6px 11px;
+    border:1px solid var(--border-light);
+    border-radius:2px;
+    background:var(--bg-deep);
+    color:var(--text);
+  }
+  .breaker .led{
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 5px 1px rgba(240,169,59,0.75);
+    flex-shrink:0;
+  }
+
+  /* ---------- Education ---------- */
+  .rec-list{list-style:none; margin:0; padding:0;}
+  .rec-list li{
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .rec-list li:last-child{border-bottom:none;}
+  .rec-main{color:var(--text); font-weight:500; font-size:0.98rem;}
+  .rec-sub{color:var(--text-dim); font-size:0.87rem; margin-top:3px;}
+  .rec-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--text-faint);
+    white-space:nowrap;
+    padding-top:2px;
+  }
+
+  /* ---------- Languages: signal meters ---------- */
+  .signal-row{display:flex; align-items:center; gap:14px; margin-bottom:14px;}
+  .signal-row:last-child{margin-bottom:0;}
+  .signal-name{width:84px; flex-shrink:0; font-size:0.92rem; color:var(--text);}
+  .signal-bars{display:flex; gap:3px; flex:1;}
+  .signal-bars span{
+    height:14px;
+    flex:1;
+    background:var(--border);
+    border-radius:1px;
+  }
+  .signal-bars span.on{background:var(--cyan); box-shadow:0 0 5px rgba(95,201,232,0.5);}
+  .signal-level{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    color:var(--text-faint);
+    width:110px;
+    text-align:right;
+    flex-shrink:0;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:44px;
+    padding:clamp(18px, 4vw, 24px) clamp(16px, 4vw, 30px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer .avail{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--text-dim);
+  }
+  footer .avail strong{color:var(--text); font-weight:500;}
+  footer .contacts{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+
+  @media print{
+    body{background:#fff; color:#000;}
+  }
+
+  /* ---------- Responsive tuning ---------- */
+  @media (max-width:900px){
+    main{padding-left:24px; padding-right:24px;}
+  }
+
+  @media (max-width:680px){
+    #hero{flex-direction:column; align-items:flex-start; text-align:left;}
+    .hud-frame{width:112px; height:112px;}
+    #hero .contact-strip{font-size:11.5px; gap:6px 16px;}
+    .chapter{font-size:11px;}
+  }
+
+  @media (max-width:560px){
+    section{margin-top:30px;}
+    h2{font-size:1.3rem;}
+    .rec-list li{flex-direction:column; gap:4px;}
+    .rec-date{order:-1; color:var(--amber); opacity:0.85;}
+    footer{flex-direction:column; align-items:flex-start;}
+    .signal-name{width:72px; font-size:0.86rem;}
+    .signal-level{width:auto; font-size:9px;}
+  }
+
+  @media (max-width:420px){
+    main{padding-left:16px; padding-right:16px;}
+    #hero h1{font-size:1.5rem;}
+    .badge{font-size:10px; padding:2px 6px;}
+    .status{font-size:10px;}
+    .hud-tag{font-size:8.5px;}
+    .breaker{font-size:11px; padding:5px 9px;}
+    .tag-role{font-size:0.98rem;}
+  }
+
+  @media (max-width:360px){
+    .hud-frame{width:96px; height:96px;}
+    #hero .headline{min-width:0;}
+    .signal-bars span{height:11px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hazard" aria-hidden="true"></div>
+
+<main>
+
+  <section id="hero" class="panel">
+    <span class="rivet tl"></span><span class="rivet tr"></span>
+    <span class="rivet bl"></span><span class="rivet br"></span>
+
+    <div>
+      <div class="hud-frame">
+        <span class="c2"></span><span class="c3"></span>
+        <img src="photo.jpg" alt="Portrait of Pratik Pandya">
+      </div>
+      <div class="hud-tag">PP&nbsp;·&nbsp;REF&nbsp;0847</div>
+    </div>
+
+    <div class="headline">
+      <h1>Pratik Pandya</h1>
+      <div class="role-row">
+        <span class="role">Senior Supplier Quality Engineer</span>
+        <span class="badge">C-QEPP</span>
+        <span class="status"><span class="status-dot"></span>OPEN TO ROLES</span>
+        <span class="badge">OPEN TO RELOCATE</span>
+      </div>
+      <div class="contact-strip">
+        <span>Whitby, ON, Canada</span>
+        <a href="tel:4163193567">416&nbsp;319&nbsp;3567</a>
+        <a href="mailto:pratikpandyaame@gmail.com">pratikpandyaame@gmail.com</a>
+      </div>
+      <p class="lede">Eighteen years across airframe and engine maintenance, receiving inspection, and aerospace supplier quality — currently leading industrial validation at Safran Landing Systems. AS9100-trained, ASQ-CQE certified, and equally comfortable with a torque wrench or a QMS audit checklist.</p>
+    </div>
+  </section>
+
+  <section id="profile">
+    <div class="chapter"><span class="num">SEC&nbsp;01</span> PROFILE</div>
+    <div class="panel">
+      <span class="rivet tl"></span><span class="rivet tr"></span>
+      <span class="rivet bl"></span><span class="rivet br"></span>
+      <div class="panel-pad">
+        <h2>Professional summary</h2>
+        <p>Accomplished Senior Supplier Quality Engineer with a proven record at Safran Landing Systems, strengthening supply chain reliability through supplier audits, process validation, and Digital Product Definition control. Equally at home reading a control plan, running a first article inspection, or leading a corrective-action review with a supplier's leadership team.</p>
+        <p>Background spans raw material and forging selection, receiving inspection of precision aerostructure components, and — earlier still — hands-on maintenance of rotary and fixed-wing aircraft. That flight-line experience shapes a quality approach grounded in how parts actually perform in service, not just on paper.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="chapter"><span class="num">SEC&nbsp;02</span> MAINTENANCE &amp; QUALITY LOG</div>
+    <div class="log-list">
+
+      <div class="panel tag">
+        <div class="tag-meta">
+          <div class="tag-ref">SLS</div>
+          <span class="tag-dates">08/2025 —<br>CURRENT</span>
+          <div class="tag-status active"><span class="dot"></span>ACTIVE</div>
+        </div>
+        <div>
+          <div class="tag-role">Industrial Validation Leader</div>
+          <div class="tag-org">Safran Landing Systems, Ajax, ON</div>
+          <ul>
+            <li>Validate supplier-proposed manufacturing processes for new product industrialization</li>
+            <li>Assess technical requirements and guide suppliers through APQP and PPAP milestones</li>
+            <li>Manage supplier performance across quality, cycle time, and capacity</li>
+            <li>Lead problem-solving and corrective actions with suppliers</li>
+            <li>Conduct supplier audits and risk assessments; liaise between internal teams and suppliers</li>
+            <li>Lead cross-functional teams to streamline industrialization workflows</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel tag">
+        <div class="tag-meta">
+          <div class="tag-ref">SLS</div>
+          <span class="tag-dates">08/2018 —<br>08/2025</span>
+          <div class="tag-status done"><span class="dot"></span>COMPLETE</div>
+        </div>
+        <div>
+          <div class="tag-role">Senior Supplier Quality Engineer</div>
+          <div class="tag-org">Safran Landing Systems, Ajax, ON</div>
+          <ul>
+            <li>Guided suppliers on raw material and forging selection strategy</li>
+            <li>Lead auditor for product-process audits, QMS audits, and Digital Product Definition audits</li>
+            <li>Set ongoing supplier site evaluation parameters to sustain long-term quality control</li>
+            <li>Traveled to supplier facilities to verify staff qualifications and process readiness</li>
+            <li>Managed supplier product change notifications to protect production schedules</li>
+            <li>Resolved supplier-related quality concerns with cross-functional teams</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel tag">
+        <div class="tag-meta">
+          <div class="tag-ref">MHI</div>
+          <span class="tag-dates">04/2016 —<br>08/2018</span>
+          <div class="tag-status done"><span class="dot"></span>COMPLETE</div>
+        </div>
+        <div>
+          <div class="tag-role">Supplier Quality Inspector</div>
+          <div class="tag-org">Mitsubishi Heavy Industries Aerospace Inc., Toronto, ON</div>
+          <ul>
+            <li>Validated manufacturing processes, FAI reports, routers, and control plans</li>
+            <li>Inspected detail and assembly parts using precision measurement instruments</li>
+            <li>Interfaced with designers and suppliers to confirm product data and quality requirements</li>
+            <li>Issued non-conformance and corrective action reports; analyzed quality data for spec revisions</li>
+            <li>Trained and mentored junior staff on supply chain and inspection best practices</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel tag">
+        <div class="tag-meta">
+          <div class="tag-ref">WAH</div>
+          <span class="tag-dates">05/2013 —<br>04/2016</span>
+          <div class="tag-status done"><span class="dot"></span>COMPLETE</div>
+        </div>
+        <div>
+          <div class="tag-role">Quality Assurance Inspector</div>
+          <div class="tag-org">Wesco Aircraft Hardware, Toronto, ON</div>
+          <ul>
+            <li>Performed receiving, in-process, and final inspection of complex components and assemblies</li>
+            <li>Ran visual inspections and non-destructive tests where required</li>
+            <li>Processed material rejections and non-conformances; ran root-cause and corrective actions</li>
+            <li>Maintained compliance with quality procedures and QMS requirements</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel tag">
+        <div class="tag-meta">
+          <div class="tag-ref">ART</div>
+          <span class="tag-dates">01/2012 —<br>12/2012</span>
+          <div class="tag-status done"><span class="dot"></span>COMPLETE</div>
+        </div>
+        <div>
+          <div class="tag-role">Quality Assurance Engineering Intern</div>
+          <div class="tag-org">A Raymond Tinnermen, Hamilton, ON</div>
+          <ul>
+            <li>Led quality control for metal fastener lines across automotive, aviation, agriculture, and construction</li>
+            <li>Validated products through approved processes to meet contractual requirements</li>
+            <li>Tracked non-conformance on Statistical Process Control charts using micrometers, calipers, and go/no-go gauges</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel tag">
+        <div class="tag-meta">
+          <div class="tag-ref">GVH</div>
+          <span class="tag-dates">09/2008 —<br>08/2009</span>
+          <div class="tag-status done"><span class="dot"></span>COMPLETE</div>
+        </div>
+        <div>
+          <div class="tag-role">Aircraft Maintenance Technician</div>
+          <div class="tag-org">Global Vectra Helicorp, Mumbai, India</div>
+          <ul>
+            <li>Inspected, maintained, troubleshot, and repaired Bell-412 (PT6T) aircraft</li>
+            <li>Removed and reinstalled landing gear, engine, and flight control components</li>
+            <li>Performed scheduled and unscheduled airworthiness inspections under DGCA regulations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel tag">
+        <div class="tag-meta">
+          <div class="tag-ref">AAA</div>
+          <span class="tag-dates">01/2008 —<br>09/2008</span>
+          <div class="tag-status done"><span class="dot"></span>COMPLETE</div>
+        </div>
+        <div>
+          <div class="tag-role">Aircraft Maintenance Engineering Apprentice</div>
+          <div class="tag-org">Ahmadabad Aviation and Aeronautics Ltd., Ahmedabad, India</div>
+          <ul>
+            <li>Trained on Cessna-152, 172/LYC-O-235-L2C, and Zenith CH-2000 aircraft maintenance</li>
+            <li>Operated hand tools, gauges, and electrical test equipment for routine repairs</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <div class="chapter"><span class="num">SEC&nbsp;03</span> SYSTEMS CHECK</div>
+    <div class="panel">
+      <span class="rivet tl"></span><span class="rivet tr"></span>
+      <span class="rivet bl"></span><span class="rivet br"></span>
+      <div class="panel-pad">
+        <h2>Certifications, systems &amp; skills</h2>
+
+        <div class="breaker-group">
+          <span class="breaker-label">STANDARDS &amp; CERTIFICATION</span>
+          <div class="breakers">
+            <span class="breaker"><span class="led"></span>ASQ-CQE</span>
+            <span class="breaker"><span class="led"></span>AS9100</span>
+            <span class="breaker"><span class="led"></span>AS9102</span>
+            <span class="breaker"><span class="led"></span>AS9120</span>
+            <span class="breaker"><span class="led"></span>FAI</span>
+            <span class="breaker"><span class="led"></span>PPAP</span>
+            <span class="breaker"><span class="led"></span>APQP</span>
+            <span class="breaker"><span class="led"></span>GD&amp;T</span>
+          </div>
+        </div>
+
+        <div class="breaker-group">
+          <span class="breaker-label">SYSTEMS &amp; SOFTWARE</span>
+          <div class="breakers">
+            <span class="breaker"><span class="led"></span>SAP</span>
+            <span class="breaker"><span class="led"></span>ERP</span>
+            <span class="breaker"><span class="led"></span>Q-Studio</span>
+            <span class="breaker"><span class="led"></span>CATIA</span>
+            <span class="breaker"><span class="led"></span>ENOVIA</span>
+            <span class="breaker"><span class="led"></span>SolidWorks</span>
+            <span class="breaker"><span class="led"></span>MasterCAM X5</span>
+            <span class="breaker"><span class="led"></span>JD Edwards</span>
+          </div>
+        </div>
+
+        <div class="breaker-group">
+          <span class="breaker-label">QUALITY &amp; ENGINEERING</span>
+          <div class="breakers">
+            <span class="breaker"><span class="led"></span>Supplier audits</span>
+            <span class="breaker"><span class="led"></span>QMS</span>
+            <span class="breaker"><span class="led"></span>Digital Product Definition</span>
+            <span class="breaker"><span class="led"></span>Engineering change management</span>
+            <span class="breaker"><span class="led"></span>Raw material &amp; forgings</span>
+            <span class="breaker"><span class="led"></span>Quality inspections</span>
+          </div>
+        </div>
+
+        <div class="breaker-group">
+          <span class="breaker-label">PROFESSIONAL</span>
+          <div class="breakers">
+            <span class="breaker"><span class="led"></span>Strategic planning</span>
+            <span class="breaker"><span class="led"></span>Process improvement</span>
+            <span class="breaker"><span class="led"></span>Relationship building</span>
+            <span class="breaker"><span class="led"></span>Coaching</span>
+            <span class="breaker"><span class="led"></span>Decision-making</span>
+            <span class="breaker"><span class="led"></span>Attention to detail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="chapter"><span class="num">SEC&nbsp;04</span> EDUCATION &amp; TRAINING RECORD</div>
+    <div class="panel">
+      <span class="rivet tl"></span><span class="rivet tr"></span>
+      <span class="rivet bl"></span><span class="rivet br"></span>
+      <div class="panel-pad">
+        <ul class="rec-list">
+          <li>
+            <span>
+              <div class="rec-main">Certificate of Technical Studies — V5R21 CATIA Full Course</div>
+              <div class="rec-sub">Canadian Technology College, Toronto, ON</div>
+            </span>
+            <span class="rec-date">05/2016</span>
+          </li>
+          <li>
+            <span>
+              <div class="rec-main">Associate of Applied Science — Mechanical Engineering</div>
+              <div class="rec-sub">Sheridan College Institute of Technology and Advanced Learning, Brampton, ON</div>
+            </span>
+            <span class="rec-date">08/2012</span>
+          </li>
+          <li>
+            <span>
+              <div class="rec-main">Online Diploma — Aircraft Mechanic Certification</div>
+              <div class="rec-sub">International Career School, Westmount, QC</div>
+            </span>
+            <span class="rec-date">06/2012</span>
+          </li>
+          <li>
+            <span>
+              <div class="rec-main">Associate of Applied Science — Aircraft Maintenance Engineering</div>
+              <div class="rec-sub">Western India Institute of Aeronautics, Ahmedabad, India</div>
+            </span>
+            <span class="rec-date">08/2008</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="chapter"><span class="num">SEC&nbsp;05</span> LANGUAGE SIGNAL</div>
+    <div class="panel">
+      <span class="rivet tl"></span><span class="rivet tr"></span>
+      <span class="rivet bl"></span><span class="rivet br"></span>
+      <div class="panel-pad">
+        <div class="signal-row">
+          <span class="signal-name">English</span>
+          <div class="signal-bars">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span>
+          </div>
+          <span class="signal-level">FULL PROFESSIONAL</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-name">Hindi</span>
+          <div class="signal-bars">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span>
+          </div>
+          <span class="signal-level">FULL PROFESSIONAL</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-name">Gujarati</span>
+          <div class="signal-bars">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+          </div>
+          <span class="signal-level">NATIVE / BILINGUAL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="panel">
+    <span class="rivet tl"></span><span class="rivet tr"></span>
+    <span class="rivet bl"></span><span class="rivet br"></span>
+    <div class="avail"><strong>Open to opportunities</strong> — supplier quality, industrialization &amp; validation roles, open to relocation</div>
+    <div class="contacts">
+      <a href="mailto:pratikpandyaame@gmail.com">pratikpandyaame@gmail.com</a>
+      <a href="tel:4163193567">416 319 3567</a>
+      <span style="color:var(--text-faint)">Whitby, ON</span>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
