@@ -471,6 +471,7 @@
     border-radius:2px;
     border:1px solid transparent;
     transition:color 0.15s ease, border-color 0.15s ease;
+    flex-shrink:0;
   }
   #navbar .menu a:hover{color:var(--text);}
   #navbar .menu a.active{
@@ -478,21 +479,47 @@
     border-color:var(--amber-dim);
     background:rgba(240,169,59,0.08);
   }
+  #navbar .actions{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-shrink:0;
+  }
+  #navbar .dl-btn,
   #navbar .print-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
     font-family:'IBM Plex Mono', monospace;
     font-size:10.5px;
     letter-spacing:0.05em;
-    color:var(--bg-deep);
-    background:var(--amber);
     border:none;
     border-radius:2px;
-    padding:7px 10px;
+    padding:7px 9px;
     cursor:pointer;
     white-space:nowrap;
     flex-shrink:0;
     font-weight:600;
+    text-decoration:none;
   }
-  #navbar .print-btn:hover{background:#F7BB5C;}
+  #navbar .dl-btn svg,
+  #navbar .print-btn svg{
+    width:13px; height:13px; flex-shrink:0;
+    stroke:currentColor; fill:none; stroke-width:2;
+  }
+  #navbar .dl-btn{
+    color:var(--bg-deep);
+    background:var(--amber);
+  }
+  #navbar .dl-btn:hover{background:#F7BB5C;}
+  #navbar .print-btn{
+    color:var(--text);
+    background:transparent;
+    border:1px solid var(--border-light);
+  }
+  #navbar .print-btn:hover{border-color:var(--cyan); color:var(--cyan);}
+  #navbar .dl-btn .btn-label,
+  #navbar .print-btn .btn-label{display:none;}
 
   /* =========================================================
      TABLET AND UP (≥600px)
@@ -502,6 +529,8 @@
     .hazard{height:6px; background-size:38px 38px;}
     #navbar .inner{padding:0 24px; height:52px;}
     #navbar .menu a{font-size:11px; padding:8px 12px;}
+    #navbar .dl-btn, #navbar .print-btn{font-size:11px; padding:8px 12px;}
+    #navbar .dl-btn .btn-label, #navbar .print-btn .btn-label{display:inline;}
 
     section{margin-top:36px;}
     section:first-of-type{margin-top:40px;}
@@ -588,7 +617,16 @@
       <a href="#languages" data-nav>Languages</a>
       <a href="#contact" data-nav>Contact</a>
     </div>
-    <button class="print-btn" onclick="window.print()">Print / PDF</button>
+    <div class="actions">
+      <a class="dl-btn" href="PRATIK_PANDYA_Resume1.pdf" download aria-label="Download resume PDF">
+        <svg viewBox="0 0 24 24"><path d="M12 3v13"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+        <span class="btn-label">Download</span>
+      </a>
+      <button class="print-btn" onclick="window.print()" aria-label="Print or save as PDF">
+        <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><rect x="6" y="13" width="12" height="8"/><path d="M6 17H3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-3"/></svg>
+        <span class="btn-label">Print</span>
+      </button>
+    </div>
   </div>
 </nav>
 
